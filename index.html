@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Huck's House Help | Babysitting & Pet Care in Oakland</title>
+  <meta name="description" content="Babysitting, dog walking, pet sitting, pet feeding, and plant watering in Oakland. CPR and Red Cross certified.">
+  <meta property="og:title" content="Huck's House Help">
+  <meta property="og:description" content="Babysitting, pet care, and plant watering in Oakland. CPR and Red Cross certified.">
+  <meta name="theme-color" content="#1d6b5a">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231d6b5a'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='34' font-weight='700' fill='white' text-anchor='middle'%3EH%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #1d6b5a;
+      --accent-soft: #e8f2ef;
+      --ink: #1c2321;
+      --muted: #5b6663;
+      --line: #e3e7e5;
+      --bg: #ffffff;
+      --bg-alt: #f7f9f8;
+      --radius: 14px;
+      --max: 960px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--ink);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Top bar */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .brand {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+    .nav { display: flex; align-items: center; gap: 24px; }
+    .nav a.link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+    .nav a.link:hover { color: var(--ink); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: 999px;
+      padding: 12px 22px;
+      transition: background 0.15s ease;
+    }
+    .btn:hover { background: #155446; }
+    .btn-sm { padding: 8px 16px; font-size: 0.95rem; }
+
+    /* Hero */
+    .hero {
+      padding: 72px 0 64px;
+      text-align: center;
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: clamp(2.3rem, 7vw, 3.6rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin: 0 0 16px;
+    }
+    .tagline {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto 32px;
+    }
+    .trust {
+      list-style: none;
+      padding: 0;
+      margin: 40px 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px 32px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .trust li { display: flex; align-items: center; gap: 8px; }
+    .trust svg { flex: none; color: var(--accent); }
+
+    /* Sections */
+    section { padding: 72px 0; }
+    .alt { background: var(--bg-alt); }
+    h2 {
+      font-size: clamp(1.7rem, 4.5vw, 2.2rem);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin: 0 0 8px;
+    }
+    .lead { color: var(--muted); margin: 0 0 40px; }
+
+    /* Services */
+    .featured {
+      background: var(--bg);
+      border: 2px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px 40px;
+      align-items: start;
+      margin-bottom: 20px;
+    }
+    .featured .tag {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .featured h3 { font-size: 1.5rem; margin: 0 0 8px; letter-spacing: -0.01em; }
+    .featured p { margin: 0; color: var(--muted); }
+    .featured ul {
+      margin: 16px 0 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+    .featured ul li { margin-bottom: 4px; }
+    .price-big {
+      text-align: right;
+      white-space: nowrap;
+    }
+    .price-big .amount {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .price-big .unit { color: var(--muted); font-size: 0.95rem; }
+    .price-big .extra {
+      margin-top: 12px;
+      font-size: 0.95rem;
+      color: var(--ink);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .card {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+    }
+    .icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+    }
+    .card h3 { font-size: 1.15rem; margin: 0 0 6px; }
+    .card p { margin: 0 0 20px; color: var(--muted); flex: 1; }
+    .price {
+      font-weight: 700;
+      font-size: 1.25rem;
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+    }
+    .price span { font-weight: 400; font-size: 0.95rem; color: var(--muted); }
+
+    /* About */
+    .about {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .about p { margin: 0 0 16px; }
+    .facts {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+    .facts li {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    .facts li:last-child { border-bottom: none; }
+    .facts strong {
+      display: block;
+      font-size: 1.5rem;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    .facts span { color: var(--muted); font-size: 0.95rem; }
+
+    /* Reviews */
+    .reviews {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    blockquote {
+      margin: 0;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+    }
+    blockquote p {
+      margin: 0 0 20px;
+      flex: 1;
+    }
+    blockquote p::before { content: "\201C"; }
+    blockquote p::after { content: "\201D"; }
+    blockquote footer { color: var(--muted); font-size: 0.95rem; }
+    blockquote footer strong { color: var(--ink); font-weight: 500; }
+
+    /* Contact */
+    .contact { text-align: center; }
+    .contact .lead { max-width: 520px; margin: 0 auto 32px; }
+    .contact .btn { font-size: 1.05rem; padding: 16px 28px; }
+    .email-text {
+      display: block;
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      word-break: break-all;
+    }
+
+    footer.site {
+      border-top: 1px solid var(--line);
+      padding: 28px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* Phones */
+    @media (max-width: 720px) {
+      body { font-size: 16px; }
+      .nav a.link { display: none; }
+      .hero { padding: 48px 0 44px; }
+      .trust { flex-direction: column; align-items: center; gap: 10px; margin-top: 32px; }
+      section { padding: 56px 0; }
+      .lead { margin-bottom: 28px; }
+      .featured {
+        grid-template-columns: 1fr;
+        padding: 24px;
+      }
+      .price-big { text-align: left; }
+      .grid, .reviews, .about { grid-template-columns: 1fr; }
+      .about { gap: 32px; }
+      .card, blockquote { padding: 24px; }
+      .contact .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="#top">Huck's House Help</a>
+      <nav class="nav">
+        <a class="link" href="#services">Services</a>
+        <a class="link" href="#about">About</a>
+        <a class="link" href="#reviews">Reviews</a>
+        <a class="btn btn-sm" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- 1. Header / hero -->
+    <div class="hero">
+      <div class="wrap">
+        <span class="eyebrow">Oakland neighborhood · Since October 2025</span>
+        <h1>Huck's House Help</h1>
+        <p class="tagline">Babysitting, pet care, and plant watering from a neighbor you can count on.</p>
+        <a class="btn" href="#contact">Book Huck</a>
+        <ul class="trust">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            CPR &amp; Red Cross certified
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            7 regular clients and counting
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            Serving Oakland
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 2. Services -->
+    <section id="services" class="alt">
+      <div class="wrap">
+        <h2>Services &amp; prices</h2>
+        <p class="lead">Simple, upfront pricing. Not sure what you need? Just ask.</p>
+
+        <div class="featured">
+          <div>
+            <span class="tag">Now booking</span>
+            <h3>Babysitting</h3>
+            <p>Safe, attentive care so you can head out with peace of mind. I'm CPR and Red Cross certified.</p>
+            <ul>
+              <li>Up to 3 kids</li>
+              <li>For 2 or more kids, I may bring a trusted friend to help (only with your OK)</li>
+            </ul>
+          </div>
+          <div class="price-big">
+            <div class="amount">$20</div>
+            <div class="unit">per hour</div>
+            <div class="extra">+$5 per hour for each extra child</div>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <div class="icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><circle cx="5.5" cy="10" r="2.2"/><circle cx="9.5" cy="5.5" r="2.2"/><circle cx="14.5" cy="5.5" r="2.2"/><circle cx="18.5" cy="10" r="2.2"/><path d="M12 11c-3 0-6 4.5-6 7 0 1.7 1.3 2.5 3 2.5 1.2 0 2-.6 3-.6s1.8.6 3 .6c1.7 0 3-.8 3-2.5 0-2.5-3-7-6-7z"/></svg>
+            </div>
+            <h3>Dog walking</h3>
+            <p>A walk around the neighborhood so your dog gets exercise while you're busy.</p>
+            <div class="price">$20 <span>per 30-minute walk</span></div>
+          </div>
+
+          <div class="card">
+            <div class="icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18"/><path d="M4 12a8 6 0 0 0 16 0"/><path d="M9 8c0-1.5 1-2.5 3-2.5s3 1 3 2.5"/></svg>
+            </div>
+            <h3>Pet feeding</h3>
+            <p>Quick visits to feed and check on cats, hamsters, fish, and more while you're away.</p>
+            <div class="price">$10 <span>per visit (nearby)</span></div>
+          </div>
+
+          <div class="card">
+            <div class="icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M12 17.5s-3-1.8-3-3.6a1.6 1.6 0 0 1 3-.8 1.6 1.6 0 0 1 3 .8c0 1.8-3 3.6-3 3.6z"/></svg>
+            </div>
+            <h3>Pet sitting</h3>
+            <p>Longer or more involved care for your pets. The price depends on what they need.</p>
+            <div class="price">Ask for a quote</div>
+          </div>
+
+          <div class="card">
+            <div class="icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V11"/><path d="M12 13c0-4 3-7 8-7 0 5-3 8-8 7z"/><path d="M12 15c0-3-2.5-5.5-7-5.5 0 4 2.5 6.5 7 5.5z"/></svg>
+            </div>
+            <h3>Plant watering</h3>
+            <p>Your plants watered and looked after while you're away.</p>
+            <div class="price">$15 <span>per visit</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. About -->
+    <section id="about">
+      <div class="wrap about">
+        <div>
+          <h2>About me</h2>
+          <p class="lead" style="margin-bottom:24px">A neighbor who shows up on time and takes the job seriously.</p>
+          <p>Hi, I'm Huck. I started Huck's House Help in October 2025 to help families right here in my Oakland neighborhood.</p>
+          <p>I'm CPR and Red Cross certified, so I'm prepared if something goes wrong. Whether I'm watching your kids, walking your dog, feeding your cat, or watering your plants, I treat your home and family with care.</p>
+        </div>
+        <ul class="facts">
+          <li><strong>7</strong><span>Regular clients and counting</span></li>
+          <li><strong>CPR &amp; Red Cross</strong><span>Certified</span></li>
+          <li><strong>Oct 2025</strong><span>Serving the neighborhood since</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 4. Reviews -->
+    <section id="reviews" class="alt">
+      <div class="wrap">
+        <h2>What neighbors say</h2>
+        <p class="lead">Reviews from regular clients.</p>
+        <div class="reviews">
+          <blockquote>
+            <p>[REVIEW QUOTE 1]</p>
+            <footer><strong>[CLIENT NAME]</strong> · [SERVICE]</footer>
+          </blockquote>
+          <blockquote>
+            <p>[REVIEW QUOTE 2]</p>
+            <footer><strong>[CLIENT NAME]</strong> · [SERVICE]</footer>
+          </blockquote>
+          <blockquote>
+            <p>[REVIEW QUOTE 3]</p>
+            <footer><strong>[CLIENT NAME]</strong> · [SERVICE]</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Contact -->
+    <section id="contact" class="contact">
+      <div class="wrap">
+        <h2>Get in touch</h2>
+        <p class="lead">Send me an email with what you need, the dates and times, and how many kids or pets. I'll get back to you soon.</p>
+        <a class="btn" href="mailto:huxley.fosterewing@ousd.org?subject=Huck%27s%20House%20Help%20request">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          Email Huck
+        </a>
+        <span class="email-text">huxley.fosterewing@ousd.org</span>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site">
+    <div class="wrap">© 2026 Huck's House Help · Oakland, CA</div>
+  </footer>
+
+</body>
+</html>
